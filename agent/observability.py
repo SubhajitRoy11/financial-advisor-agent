@@ -1,20 +1,4 @@
-"""
-observability.py — Tracing & Structured Logging
--------------------------------------------------
-WHY THIS FILE EXISTS:
-  The assignment requires Langfuse integration.
-  But more importantly, this teaches you a KEY principle:
-  In production AI systems, you MUST be able to audit what the LLM was
-  given and what it returned. Debugging "why did the agent say X?" is
-  impossible without traces.
 
-  We implement two modes:
-  1. Langfuse (if LANGFUSE_SECRET_KEY is set in environment)
-  2. Local JSON trace logs (always runs, even without Langfuse)
-
-  The local traces are written to ./traces/ and are human-readable JSON.
-  This means even without Langfuse, you have full observability.
-"""
 
 import json
 import os

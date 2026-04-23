@@ -1,29 +1,9 @@
-"""
-analytics.py — Portfolio Analytics Engine
-------------------------------------------
-WHY THIS FILE EXISTS:
-  Pure math. No LLM calls, no JSON loading, no prompts.
-  This module takes a portfolio dict and market context, and outputs numbers.
-  Separating math from reasoning is critical — it makes the system testable,
-  debuggable, and trustworthy. The LLM reasons ABOUT these numbers; it doesn't
-  compute them.
-
-WHAT IT COMPUTES:
-  - Daily P&L (absolute + %) for every holding
-  - Sector allocation breakdown
-  - Asset type allocation (stocks vs MF)
-  - Concentration risk detection
-  - A "portfolio impact map" linking which holdings moved and why
-"""
 
 from dataclasses import dataclass, field
 from typing import Optional
 from agent.ingestion import MarketContext
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# OUTPUT DATA CLASSES
-# ─────────────────────────────────────────────────────────────────────────────
 
 @dataclass
 class HoldingAnalysis:
@@ -69,10 +49,6 @@ class PortfolioAnalytics:
     top_gainers: list[HoldingAnalysis]          # sorted by day_change_pct desc
     confidence_score: float                     # 0.0-1.0, data completeness proxy
 
-
-# ─────────────────────────────────────────────────────────────────────────────
-# ANALYTICS ENGINE
-# ─────────────────────────────────────────────────────────────────────────────
 
 class PortfolioAnalyticsEngine:
 
@@ -181,7 +157,7 @@ class PortfolioAnalyticsEngine:
 
         all_holdings: list[HoldingAnalysis] = []
 
-        # ── Process STOCKS ──────────────────────────────────────────────────
+        #  Process STOCKS 
         for stock in holdings_raw.get("stocks", []):
             symbol = stock["symbol"]
             sector = stock.get("sector") or self._get_stock_sector(symbol)

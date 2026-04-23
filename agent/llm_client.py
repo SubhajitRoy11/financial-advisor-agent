@@ -1,22 +1,3 @@
-"""
-llm_client.py — Universal LLM Provider Client
------------------------------------------------
-Supports: Grok (xAI), Gemini (Google), Anthropic (Claude)
-
-Pick provider via environment variable:
-  $env:LLM_PROVIDER="gemini"      (Windows PowerShell)
-  export LLM_PROVIDER=gemini      (Mac/Linux)
-
-Set matching API key:
-  $env:GEMINI_API_KEY="AIza..."
-  $env:GROK_API_KEY="xai-..."
-  $env:ANTHROPIC_API_KEY="sk-ant-..."
-
-Free keys:
-  Gemini    → https://aistudio.google.com  (free forever, recommended)
-  Grok      → https://console.x.ai         (free monthly credits)
-  Anthropic → https://console.anthropic.com ($5 free on signup)
-"""
 
 import os
 import time
@@ -78,7 +59,7 @@ class LLMClient:
         if not key:
             raise EnvironmentError(
                 f"\n{'='*60}\n"
-                f"  ❌ Missing API key for provider '{self.provider.upper()}'\n"
+                f"   Missing API key for provider '{self.provider.upper()}'\n"
                 f"  Environment variable: {env_var}\n\n"
                 f"  WINDOWS PowerShell:\n"
                 f"    $env:{env_var}=\"your_key_here\"\n\n"

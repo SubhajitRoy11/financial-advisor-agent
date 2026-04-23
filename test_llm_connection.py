@@ -25,7 +25,7 @@ def test_provider(provider: str, api_key: str) -> bool:
     print(f"{'='*60}")
     
     if not api_key:
-        print(f"❌ No API key found for {provider.upper()}")
+        print(f"No API key found for {provider.upper()}")
         return False
     
     print(f"✓ API Key found (length: {len(api_key)} chars)")
@@ -50,7 +50,7 @@ def test_provider(provider: str, api_key: str) -> bool:
         return True
         
     except Exception as e:
-        print(f"❌ Error: {str(e)[:500]}")
+        print(f" Error: {str(e)[:500]}")
         return False
 
 
@@ -79,7 +79,7 @@ def main():
         if api_key:
             test_provider(current_provider, api_key)
         else:
-            print(f"\n❌ Current provider {current_provider.upper()} has no API key!")
+            print(f"\n Current provider {current_provider.upper()} has no API key!")
             print(f"   Set it with: $env:{current_provider.upper()}_API_KEY=\"your_key\"")
     
     # Test other providers if user wants

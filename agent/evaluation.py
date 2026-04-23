@@ -1,22 +1,3 @@
-"""
-evaluation.py — Self-Evaluation Layer
----------------------------------------
-WHY THIS FILE EXISTS:
-  The assignment asks the agent to "grade its own output."
-  This is a real pattern in production AI systems called "LLM-as-judge."
-
-  We do TWO types of checks:
-  1. Rule-based (fast, no API call): structural checks — does it mention
-     actual numbers, stock names, causal chains?
-  2. LLM-as-judge (optional, one extra API call): scores reasoning quality
-     on Causal Depth, Specificity, Conflict Handling, Risk Coverage.
-
-EVALUATION RUBRIC:
-  Causal Depth     40% — Did it link news → sector → stock → portfolio?
-  Specificity      30% — Does it mention actual numbers and names?
-  Conflict Handling 20% — Did it explain conflicting signals?
-  Risk Coverage    10% — Did it mention concentration/risk alerts?
-"""
 
 import os
 import re
@@ -36,7 +17,7 @@ class EvaluationResult:
     risk_coverage_score: float
     rule_checks: dict[str, bool]
     explanation: str
-    method: str                 # "LLM" | "RULE_BASED" | "HYBRID"
+    method: str                 
 
 
 class BriefingEvaluator:

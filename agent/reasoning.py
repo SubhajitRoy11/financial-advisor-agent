@@ -1,9 +1,4 @@
-"""
-reasoning.py — Autonomous Reasoning Layer
-------------------------------------------
-Calls the LLM with a lean, focused prompt.
-Prompt is kept under 1500 chars to work on all free API tiers.
-"""
+
 
 import json
 import os

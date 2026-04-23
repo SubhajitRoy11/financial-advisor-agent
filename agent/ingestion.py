@@ -1,18 +1,4 @@
-"""
-ingestion.py — Market Intelligence Layer
------------------------------------------
-WHY THIS FILE EXISTS:
-  Every project needs a clean "data in" layer. This file is the ONLY
-  place that touches raw JSON. Everything else in the system asks THIS
-  module for data. That means if the data source ever changes (real API,
-  database, etc.), you only edit one file.
 
-WHAT IT DOES:
-  1. Loads all JSON files into Python dataclasses (typed structures)
-  2. Computes market sentiment (Bullish / Bearish / Neutral) from index moves
-  3. Classifies news by scope and links it to sectors/stocks
-  4. Returns clean, typed objects the rest of the system can trust
-"""
 
 import json
 import os
