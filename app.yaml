@@ -1,0 +1,8 @@
+sdk: streamlit
+app_file: app.py
+sdk_version: 1.32.0
+title: Financial Advisor Agent
+emoji: 🤖
+colorFrom: blue
+colorTo: green
+pinned: false
